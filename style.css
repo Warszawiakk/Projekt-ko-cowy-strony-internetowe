@@ -13,7 +13,7 @@ body > :first-child {
   height: 500px;
   border-radius: 35px;
 }
-.tile {
+body > :first-child > button {
   width: 121px;
   height: 121px;
   flex-wrap: wrap;
@@ -22,7 +22,6 @@ body > :first-child {
   border-color: transparent;
   margin-bottom: 5px;
   background-color: rgb(35, 37, 36);
-  color: transparent;
 }
 body > :first-child > button:hover {
   transition: 0.5s;
@@ -30,19 +29,16 @@ body > :first-child > button:hover {
   border-radius: 40px;
   cursor: grab;
 }
-@keyframes rotate {
+body > :first-child > button:active {
+  animation: 0.5s tileReveal infinite;
+}
+@keyframes tileReveal {
   0% {
-    rotate: 0deg;
+    color: white;
   }
   100% {
-    rotate: 15deg;
   }
 }
-body > :first-child > button:active {
-  border-radius: 100%;
-  animation: 0.5s rotate;
-  transition: 0.3s;
-  color: white;
-  background-color: rgb(54, 56, 55);
-  cursor: grabbing;
+.hidden {
+  color: transparent;
 }
