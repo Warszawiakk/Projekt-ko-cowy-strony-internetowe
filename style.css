@@ -4,14 +4,15 @@ body {
   align-items: center;
   align-content: center;
   padding-top: 10vh;
-  background-color: rgb(53, 52, 52);
+  background-color: rgb(119, 20, 210);
 }
 body > :first-child {
   background-color: rgb(46, 46, 46);
   padding: 1vw;
-  width: 500px;
-  height: 500px;
+  width: 590px;
+  height: 590px;
   border-radius: 35px;
+  box-shadow: 2px 2px 10px 5px black;
 }
 body > :first-child > button {
   width: 121px;
@@ -22,15 +23,34 @@ body > :first-child > button {
   border-color: transparent;
   margin-bottom: 5px;
   background-color: rgb(35, 37, 36);
+  margin: 13px;
 }
 body > :first-child > button:hover {
   transition: 0.5s;
-  background-color: rgb(151, 39, 5);
+  background-color: rgb(12, 173, 213);
   border-radius: 40px;
-  cursor: grab;
+  cursor: pointer;
+  animation: 2s glow infinite;
 }
 body > :first-child > button:active {
+  cursor: default;
+}
+/* body > :first-child > button:active {
   animation: 0.5s tileReveal infinite;
+} */
+@keyframes glow {
+  0% {
+    box-shadow: 0px 0px 10px 5px white;
+    transition: 10ms;
+  }
+  50% {
+    box-shadow: 0px 0px 10px 10px white;
+    transition: 10ms;
+  }
+  100% {
+    box-shadow: 0px 0px 10px 5px white;
+    transition: 10ms;
+  }
 }
 @keyframes tileReveal {
   0% {
