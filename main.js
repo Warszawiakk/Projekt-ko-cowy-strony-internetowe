@@ -1,4 +1,6 @@
 const buttons = document.getElementsByTagName("button");
+let firstButton = null;
+let secondButton = null;
 
 function randomTiles() {
   const table = document.getElementById("table");
@@ -8,22 +10,44 @@ function randomTiles() {
 }
 randomTiles();
 
-for (button of buttons) {
+for (const button of buttons) {
   button.addEventListener("click", function (event) {
-    console.log(event.target);
-    event.target.classList.remove("hidden");
-    count++;
+    if (!firstButton) {
+      firstButton = event.target;
+      firstButton.classList.remove("hidden");
+    } else if (!secondButton && event.target !== firstButton) {
+      secondButton = event.target;
+      secondButton.classList.remove("hidden");
+      checkCompatibility();
+    }
+    checkGameEnd();
   });
 }
-console.log(buttons);
 
-const count = 0;
+function checkCompatibility() {
+  if (firstButton.id === secondButton.id) {
+    firstButton.classList.add("disapear");
+    secondButton.classList.add("disapear");
+  } else {
+    setTimeout(() => {
+      firstButton.classList.add("hidden");
+      secondButton.classList.add("hidden");
+    }, 1000);
+  }
+  setTimeout(() => {
+    firstButton = null;
+    secondButton = null;
+  }, 1000);
+}
+function checkGameEnd() {
+  const allButtons = document.querySelectorAll("#table button");
+  const allDisappeared = Array.from(allButtons).every((button) =>
+    button.classList.contains("disapear")
+  );
 
-if (count > 2) {
-  count = 0;
-  for (button of buttons) {
-    if (classList !== "hidden") {
-      button.classList.add("hidden");
-    }
+  if (allDisappeared) {
+    const winRefreshSite = document.getElementById("WinRefreshSite");
+    winRefreshSite.classList.remove("disapear");
+    winRefreshSite.classList.add("WinRefreshSite");
   }
 }

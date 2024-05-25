@@ -3,7 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding-top: 10vh;
+  padding-top: 5vh;
   background-color: rgb(119, 20, 210);
 }
 body > :first-child {
@@ -26,7 +26,7 @@ body > :first-child > button {
   margin: 13px;
 }
 body > :first-child > button:hover {
-  transition: 0.5s;
+  transition: 0.4s;
   background-color: rgb(12, 173, 213);
   border-radius: 40px;
   cursor: pointer;
@@ -61,4 +61,39 @@ body > :first-child > button:active {
 }
 .hidden {
   color: transparent;
+}
+.disapear {
+  display: none;
+}
+.WinRefreshSite {
+  position: fixed;
+  background-color: rgb(78, 11, 224);
+  padding: 5vw;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  color: whitesmoke;
+  text-shadow: 1px 2px black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+#WinRefreshSite > button {
+  margin-top: 3vh;
+  font-size: 2.456958493234235rem;
+  border-radius: 15px;
+  border: 0px;
+  background-color: white;
+  animation: 2s glow infinite;
+  padding: 1vw;
+}
+#WinRefreshSite > button:hover {
+  cursor: pointer;
+}
+#WinRefreshSite > button:active {
+  color: azure;
+  transition: 0.07s;
 }
